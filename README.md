@@ -38,7 +38,7 @@ pnpm run test
 
 4. 自己架设一键安装包
 
-···bash
+```bash
 
 bash release/install.sh
 
