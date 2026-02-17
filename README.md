@@ -2,6 +2,10 @@
 
 这是一个完全由 AI 协助开发的在线低多边形坦克大战游戏（实验性质），用于学习与试玩。
 
+在线试玩
+
+- 试玩地址： http://tank.miemie.me:3000/
+  
 主要内容
 - 服务端：基于 Node + TypeScript 的游戏逻辑（WebSocket）
 - 客户端：基于 Vite + Three 的浏览器端渲染
@@ -83,7 +87,5 @@ gh release create "v$VERSION" ./release/tankgame-online-"$VERSION".zip --title "
 
 Enjoy!
 
-在线试玩
 
-- 试玩地址： http://tank.miemie.me:3000/
 # tankgame_online
