@@ -1,0 +1,1 @@
+{"root":["./src/aiplayer.ts","./src/database.ts","./src/gameroom.ts","./src/gameworld.ts","./src/mapgenerator.ts","./src/player.ts","./src/projectile.ts","./src/spawnmanager.ts","./src/index.ts"],"version":"5.9.3"}

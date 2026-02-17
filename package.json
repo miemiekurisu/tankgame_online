@@ -1,0 +1,46 @@
+{
+  "name": "tankgame-online",
+  "version": "0.1.0",
+  "private": true,
+  "description": "低多边形坦克对战 Web 游戏",
+  "scripts": {
+    "dev": "concurrently \"pnpm dev:server\" \"pnpm dev:client\"",
+    "dev:server": "pnpm --filter @tankgame/server dev",
+    "dev:client": "pnpm --filter @tankgame/client dev",
+    "build": "pnpm --filter @tankgame/shared build && pnpm --filter @tankgame/server build && pnpm --filter @tankgame/client build",
+    "build:shared": "pnpm --filter @tankgame/shared build",
+    "build:server": "pnpm --filter @tankgame/server build",
+    "build:client": "pnpm --filter @tankgame/client build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:regression": "vitest run tests/regression",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint \"packages/*/src/**/*.ts\" \"client/src/**/*.ts\" \"server/src/**/*.ts\" \"shared/src/**/*.ts\"",
+    "format": "prettier --write \"packages/*/src/**/*.ts\" \"client/src/**/*.ts\" \"server/src/**/*.ts\" \"shared/src/**/*.ts\"",
+    "clean": "rimraf packages/*/dist packages/*/node_modules/.cache"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "@vitest/coverage-v8": "^1.6.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild"
+    ]
+  }
+}
