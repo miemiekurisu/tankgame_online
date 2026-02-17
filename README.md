@@ -36,54 +36,15 @@ pnpm --filter @tankgame/client dev
 pnpm run test
 ```
 
-构建与发布
+4. 自己架设一键安装包
 
-1. 构建生产包
+···bash
 
-```bash
-pnpm run build
+bash release/install.sh
+
 ```
 
-2. 生成 release 发布包（会把必要文件复制到 `./release`）
 
-Windows (CMD/PowerShell):
-
-```powershell
-scripts\build-release.bat
-# 或者使用 PowerShell 脚本（注：我不喜欢powershell，所以就管过，可能会有问题）
-powershell -File scripts\build-release.ps1
-```
-
-Linux / macOS:
-
-```bash
-bash scripts/build-release.sh
-```
-
-生成物会放到 `./release`（或你指定的输出目录），其中包含 `client` 静态 `dist`、`server` 编译产物、`Dockerfile`、部署脚本与 `VERSION` 文件。
-
-将 release 上传到 GitHub Releases
-
-1. 在本地创建一个签名（或非签名）Tag：
-
-```bash
-VERSION=$(node -e "console.log(require('./package.json').version)")
-git tag -a "v$VERSION" -m "Release v$VERSION"
-git push origin --tags
-```
-
-2. 在 GitHub 仓库页面创建一个 Release（上传 `release/*.zip` 或通过页面选择 Tag 并上传二进制包）。
-
-如果你使用 `gh` CLI（GitHub CLI），可以：
-
-```bash
-gh release create "v$VERSION" ./release/tankgame-online-"$VERSION".zip --title "v$VERSION" --notes "Release $VERSION"
-```
-
-备注
-- 若希望我代为创建并推送 Git tag / Release，请确保 CI 或本机已配置好 Git 凭据和 `gh`（或授权 token），并明确授权我代表你执行推送操作。
-
-许可证
 
 请参见仓库中的 `LICENSE`。
 
